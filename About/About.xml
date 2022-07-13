@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Gizmo Begone! (Continued)</name>
   <packageId>Mlie.GizmoBegone</packageId>
@@ -21,28 +21,32 @@
     <li>brrainz.harmony</li>
     <li>MalteSchulze.RIMMSqol</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of Nifs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2021234555
 
-[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
     [tr]
         [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
         [td][url=https://github.com/emipa606/GizmoBegone][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/h5VwTNL.png[/img][/td]
+    [/tr]
 [/table]
 	
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 [img]https://i.imgur.com/KJvD2se.png[/img]
-Tired of bloats? Those pesky squares taking up your screen? Well, worry no more! With Gizmo Begone, a single click can fix it all. By simply going to Gizmo Begone&apos;s settings, you&apos;ll find every ThingDef and TerrainDef you&apos;ll never need. Click on the button and voilà, it&apos;s like it never existed. The Gizmo for that buildable would be hidden, even on god mode. If you like what you see, come on down and subscribe!
+Tired of bloats? Those pesky squares taking up your screen? Well, worry no more! With Gizmo Begone, a single click can fix it all. By simply going to Gizmo Begone's settings, you'll find every ThingDef and TerrainDef you'll never need. Click on the button and voilà, it's like it never existed. The Gizmo for that buildable would be hidden, even on god mode. If you like what you see, come on down and subscribe!
 
 Edit:
-For more clarification, this mod does not remove any buildable. It also does hide research options. It simply hides the option to build the object that you selected. [b]It only affects the game visually[/b].
+For more clarification, this mod does not remove any buildable. It also does not hide research options. It simply hides the option to build the object that you selected. [b]It only affects the game visually[/b].
 
 [b]LAST EDIT:
-I&apos;m taking an indefinite hiatus as I&apos;m getting more busier with life, especially college. You are free to modify and post the mod. Thank you for the support![/b]
+I'm taking an indefinite hiatus as I'm getting more busier with life, especially college. You are free to modify and post the mod. Thank you for the support![/b]
 
 IMPORTANT NOTE: it does not remove any ThingDefs. It simply hides the button (or Gizmo) of the building in the Architect tab. If its part of world generation, it will still spawn.
 
@@ -55,17 +59,17 @@ IMPORTANT NOTE: it does not remove any ThingDefs. It simply hides the button (or
 
 
 [img]https://i.imgur.com/IhKjLH4.png[/img]
-Any mods that does the same function will most likely cause some form of incompatibility, RIMMSqol for example. It shouldn&apos;t be a hard incompatibility, however. Only one mod must be used for that same function to avoid any conflict.
+Any mods that does the same function will most likely cause some form of incompatibility, RIMMSqol for example. It shouldn't be a hard incompatibility, however. Only one mod must be used for that same function to avoid any conflict.
 
 If you find any mods that does however, please report in the Problems / Conflicts thread. Thanks!
 
 [b]Hard Incompatibility:[/b]
-»Raise The Roof - due to the way it handles DesignationCategory, the conflict causes it to hide every button in &quot;Zone&quot; tab.
+»Raise The Roof - due to the way it handles DesignationCategory, the conflict causes it to hide every button in "Zone" tab.
 
 
 [img]https://i.imgur.com/5ZFAUUh.png[/img]
-Q1: &quot;RIMMSqol compatible?&quot;
-A1: It should be, as long as you don&apos;t put it&apos;s Designation Category to a NONE.
+Q1: "RIMMSqol compatible?"
+A1: It should be, as long as you don't put it's Designation Category to a NONE.
 
 
 [img]https://i.imgur.com/8Qpxr2Q.png[/img]
@@ -78,12 +82,7 @@ A1: It should be, as long as you don&apos;t put it&apos;s Designation Category t
 »[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url] developer, [url=https://www.patreon.com/pardeike]Andreas Pardeike[/url], for making patching possible and easier
 »And thanks to Tynan Sylvester for making the wonderful game that is Rimworld.
 
-
-[img]https://i.imgur.com/vLlPqgr.png[/img]
-[url=https://ko-fi.com/nifity#][img]https://i.imgur.com/ac3XaOI.png[/img][/url]
-[url=https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=NUYHNTAMU88U6&amp;source][img]https://i.imgur.com/UxwY8Uz.gif[/img][/url]
-
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -94,4 +93,3 @@ A1: It should be, as long as you don&apos;t put it&apos;s Designation Category t
 [/list]
 </description>
 </ModMetaData>
-
