@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <GiBe.Search>Search:</GiBe.Search>
+  <GiBe.Clear>Clear</GiBe.Clear>
+  <GiBe.Unhide>Unhide all</GiBe.Unhide>
+  <GiBe.Hide>Hide all</GiBe.Hide>
+  <GiBe.CurrentModVersion>Installed mod-version: {0}</GiBe.CurrentModVersion>
+</LanguageData>
