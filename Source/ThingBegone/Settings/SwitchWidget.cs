@@ -6,9 +6,9 @@ namespace ThingBegone.Settings;
 
 public class SwitchWidget
 {
-    public List<string> terrainSaveData = new List<string>();
+    public readonly List<string> terrainSaveData = [];
 
-    public List<string> thingSaveData = new List<string>();
+    public readonly List<string> thingSaveData = [];
 
     public void Button(ThingDef thing, Vector2 vector)
     {

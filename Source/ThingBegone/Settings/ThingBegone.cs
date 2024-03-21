@@ -15,6 +15,8 @@ internal class ThingBegone : Mod
 
     private readonly Listing_Standard listing_UpperBar = new Listing_Standard();
 
+    public readonly ThingBegoneSettings settings;
+
     private readonly SwitchWidget switchWidget = new SwitchWidget();
 
     private readonly IEnumerable<TerrainDef> terrainDef_Enum = DefDatabase<TerrainDef>.AllDefs;
@@ -31,8 +33,6 @@ internal class ThingBegone : Mod
 
     private string searchInput = "";
 
-    public ThingBegoneSettings settings;
-
     private IList<Vector2> terrainVectList;
 
     private IList<Vector2> thingVectList;
@@ -43,7 +43,7 @@ internal class ThingBegone : Mod
     {
         settings = GetSettings<ThingBegoneSettings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(ModLister.GetActiveModWithIdentifier("Mlie.GizmoBegone"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     public override string SettingsCategory()
