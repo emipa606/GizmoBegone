@@ -6,9 +6,9 @@ namespace ThingBegone.Settings;
 
 public class SwitchWidget
 {
-    public readonly List<string> terrainSaveData = [];
+    public readonly List<string> TerrainSaveData = [];
 
-    public readonly List<string> thingSaveData = [];
+    public readonly List<string> ThingSaveData = [];
 
     public void Button(ThingDef thing, Vector2 vector)
     {
@@ -20,7 +20,7 @@ public class SwitchWidget
                 {
                     defName = "ID1924"
                 };
-                thingSaveData.Add(thing.defName);
+                ThingSaveData.Add(thing.defName);
             }
 
             Widgets.DrawBoxSolid(new Rect(vector, new Vector2(209.75f, 24f)), new Color(0f, 0.55f, 0f, 0.35f));
@@ -33,11 +33,13 @@ public class SwitchWidget
                 {
                     defName = "Temp"
                 };
-                thingSaveData.Remove(thing.defName);
+                ThingSaveData.Remove(thing.defName);
             }
 
             Widgets.DrawBoxSolid(new Rect(vector, new Vector2(209.75f, 24f)), new Color(0.6f, 0f, 0f, 0.35f));
         }
+
+        TooltipHandler.TipRegion(new Rect(vector, new Vector2(209.75f, 24f)), thing.modContentPack?.Name);
     }
 
     public void Button(TerrainDef terrain, Vector2 vector)
@@ -50,7 +52,7 @@ public class SwitchWidget
                 {
                     defName = "ID1924"
                 };
-                terrainSaveData.Add(terrain.defName);
+                TerrainSaveData.Add(terrain.defName);
             }
 
             Widgets.DrawBoxSolid(new Rect(vector, new Vector2(209.75f, 24f)), new Color(0f, 0.55f, 0f, 0.35f));
@@ -63,10 +65,12 @@ public class SwitchWidget
                 {
                     defName = "Temp"
                 };
-                terrainSaveData.Remove(terrain.defName);
+                TerrainSaveData.Remove(terrain.defName);
             }
 
             Widgets.DrawBoxSolid(new Rect(vector, new Vector2(209.75f, 24f)), new Color(0.6f, 0f, 0f, 0.35f));
         }
+
+        TooltipHandler.TipRegion(new Rect(vector, new Vector2(209.75f, 24f)), terrain.modContentPack?.Name);
     }
 }

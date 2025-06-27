@@ -14,9 +14,9 @@ public class Startup
         var harmony = new Harmony("com.Rimworld.Mod.ThingBegone!");
         harmony.PatchAll();
         IEnumerable<string> thingSaveData = LoadedModManager.GetMod<Settings.ThingBegone>()
-            .GetSettings<ThingBegoneSettings>().thingSaveData;
+            .GetSettings<ThingBegoneSettings>().ThingSaveData;
         IEnumerable<string> terrainSaveData = LoadedModManager.GetMod<Settings.ThingBegone>()
-            .GetSettings<ThingBegoneSettings>().terrainSaveData;
+            .GetSettings<ThingBegoneSettings>().TerrainSaveData;
         foreach (var defName in thingSaveData)
         {
             try

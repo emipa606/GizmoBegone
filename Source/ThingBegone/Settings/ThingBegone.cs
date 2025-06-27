@@ -11,17 +11,17 @@ namespace ThingBegone.Settings;
 internal class ThingBegone : Mod
 {
     private static string currentVersion;
-    private readonly Listing_Standard listing_LowerContent = new Listing_Standard();
+    private readonly Listing_Standard listingLowerContent = new();
 
-    private readonly Listing_Standard listing_UpperBar = new Listing_Standard();
+    private readonly Listing_Standard listingUpperBar = new();
 
-    public readonly ThingBegoneSettings settings;
+    private readonly ThingBegoneSettings settings;
 
-    private readonly SwitchWidget switchWidget = new SwitchWidget();
+    private readonly SwitchWidget switchWidget = new();
 
-    private readonly IEnumerable<TerrainDef> terrainDef_Enum = DefDatabase<TerrainDef>.AllDefs;
+    private readonly IEnumerable<TerrainDef> terrainDefEnum = DefDatabase<TerrainDef>.AllDefs;
 
-    private readonly IEnumerable<ThingDef> thingDef_Enum = DefDatabase<ThingDef>.AllDefs;
+    private readonly IEnumerable<ThingDef> thingDefEnum = DefDatabase<ThingDef>.AllDefs;
 
     private float rectHeight;
 
@@ -29,7 +29,7 @@ internal class ThingBegone : Mod
 
     private bool runFlagEnd = true;
 
-    private Vector2 scrollPos = new Vector2(0f, 0f);
+    private Vector2 scrollPos = new(0f, 0f);
 
     private string searchInput = "";
 
@@ -57,22 +57,24 @@ internal class ThingBegone : Mod
         List<TerrainDef> filteredTerrainDef;
         if (searchInput.Length <= 0)
         {
-            filteredThingDef = (from t in thingDef_Enum
+            filteredThingDef = (from t in thingDefEnum
                 where t.designationCategory != null
                 select t).ToList();
-            filteredTerrainDef = (from t in terrainDef_Enum
+            filteredTerrainDef = (from t in terrainDefEnum
                 where t.designationCategory != null
                 select t).ToList();
         }
         else
         {
-            filteredThingDef = (from t in thingDef_Enum
+            filteredThingDef = (from t in thingDefEnum
                 where t.designationCategory != null
-                where t.label.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0
+                where t.label.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      t.modContentPack?.Name.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0
                 select t).ToList();
-            filteredTerrainDef = (from t in terrainDef_Enum
+            filteredTerrainDef = (from t in terrainDefEnum
                 where t.designationCategory != null
-                where t.label.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0
+                where t.label.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                      t.modContentPack?.Name.IndexOf(searchInput, StringComparison.OrdinalIgnoreCase) >= 0
                 select t).ToList();
         }
 
@@ -103,7 +105,7 @@ internal class ThingBegone : Mod
             Math.Abs(rectHeight - upperBarRect.height));
         var lowerContentRectScroll = new Rect(rect.x, upperBarRect.height + 5f, rect.width,
             rect.height - upperBarRect.height);
-        listing_UpperBar.Begin(upperBarRect);
+        listingUpperBar.Begin(upperBarRect);
         var a = Text.CalcSize("GiBe.Search".Translate()).x;
         var b = Text.CalcSize("GiBe.Clear".Translate()).x;
         var c = Text.CalcSize("GiBe.Hide".Translate()).x;
@@ -130,7 +132,7 @@ internal class ThingBegone : Mod
                 {
                     defName = "ID1924"
                 };
-                switchWidget.thingSaveData.Add(thing.defName);
+                switchWidget.ThingSaveData.Add(thing.defName);
             }
 
             foreach (var terrain in filteredTerrainDef)
@@ -144,7 +146,7 @@ internal class ThingBegone : Mod
                 {
                     defName = "ID1924"
                 };
-                switchWidget.terrainSaveData.Add(terrain.defName);
+                switchWidget.TerrainSaveData.Add(terrain.defName);
             }
         }
 
@@ -161,7 +163,7 @@ internal class ThingBegone : Mod
                 {
                     defName = "Temp"
                 };
-                switchWidget.thingSaveData.Remove(thing2.defName);
+                switchWidget.ThingSaveData.Remove(thing2.defName);
             }
 
             foreach (var terrain2 in filteredTerrainDef)
@@ -175,7 +177,7 @@ internal class ThingBegone : Mod
                 {
                     defName = "Temp"
                 };
-                switchWidget.terrainSaveData.Remove(terrain2.defName);
+                switchWidget.TerrainSaveData.Remove(terrain2.defName);
             }
         }
 
@@ -187,10 +189,10 @@ internal class ThingBegone : Mod
             GUI.contentColor = Color.white;
         }
 
-        listing_UpperBar.GapLine(55f);
-        listing_UpperBar.End();
+        listingUpperBar.GapLine(55f);
+        listingUpperBar.End();
         Widgets.BeginScrollView(lowerContentRectScroll, ref scrollPos, lowerContentRect);
-        listing_LowerContent.Begin(lowerContentRect);
+        listingLowerContent.Begin(lowerContentRect);
         foreach (var thing3 in filteredThingDef.Zip(thingVectList, Tuple.Create))
         {
             switchWidget.Button(thing3.Item1, thing3.Item2);
@@ -202,16 +204,16 @@ internal class ThingBegone : Mod
         }
 
 
-        listing_LowerContent.End();
+        listingLowerContent.End();
         Widgets.EndScrollView();
     }
 
     public override void WriteSettings()
     {
-        settings.thingSaveData = (from t in switchWidget.thingSaveData
+        settings.ThingSaveData = (from t in switchWidget.ThingSaveData
             where t.Length > 0
             select t).ToList();
-        settings.terrainSaveData = (from t in switchWidget.terrainSaveData
+        settings.TerrainSaveData = (from t in switchWidget.TerrainSaveData
             where t.Length > 0
             select t).ToList();
         base.WriteSettings();
