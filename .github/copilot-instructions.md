@@ -1,38 +1,91 @@
-# Copilot Instructions for "Gizmo Begone! (Continued)"
+# GitHub Copilot Instructions for Gizmo Begone! (Continued)
 
 ## Mod Overview and Purpose
 
-**Gizmo Begone! (Continued)** is a RimWorld mod designed to help players declutter their game interface by hiding unwanted build Gizmos (buttons). These Gizmos typically appear on the Architect tab and can occupy significant space on the screen, becoming a visual nuisance. Unlike mods that remove game content, this mod maintains all game definitions intact—only affecting the visibility of certain buttons. This makes for a cleaner and more organized gameplay experience without altering core game mechanics.
+Gizmo Begone! (Continued) is a RimWorld mod that hides unwanted gizmos and buildable options from the game's Architect tab. This helps reduce clutter and improve the player's experience by allowing them to focus on what they actually want to build.
 
 ## Key Features and Systems
 
-- **Tooltip Enhancement**: In the options, players can now view tooltips providing details about the mod that each gizmo originates from.
-- **Enhanced Search Functionality**: The search bar capability is enhanced to include mod names associated with each gizmo for a more refined search experience.
-- **Non-Intrusive Design**: It hides build options visually without removing any `ThingDefs` or `TerrainDefs`.
-- **Compatibility**: The mod supports multiple game versions, with recent support added for version 1.2.
+### Hide Gizmos
+- The mod hides gizmos for selected ThingDefs and TerrainDefs, making them unavailable in the Architect tab.
+- Users can customize which gizmos to hide through the mod's settings menu.
+
+### Search by Mod Name
+- A search bar in the settings allows users to filter gizmos by the mod they come from, making it easier to identify and manage.
+
+### Tooltip for Mod Origin
+- A tooltip shows which mod each gizmo belongs to, providing additional context for users.
+
+### Compatibility
+- The mod is compatible with most other mods but may have conflicts with others like RIMMSqol and Raise The Roof.
 
 ## Coding Patterns and Conventions
 
-- **Consistent Naming**: Class names are PascalCase, reflecting their purpose clearly (e.g., `Designator_Build_Visible`, `ThingBegone`).
-- **Method Overloading**: Methods in `SwitchWidget.cs` are overloaded to handle different types of definitions (e.g., `Button(ThingDef thing, Vector2 vector)` and `Button(TerrainDef terrain, Vector2 vector)`).
-- **Access Modifiers**: The mod employs a mix of `public` and `internal` access modifiers to define visibility and encapsulation of classes and methods appropriately.
+- **Modding Framework**: The mod follows the standard RimWorld modding framework, utilizing XML for configuration and C# for core functionality.
+- **Harmony Patching**: Harmony is used for patching existing game methods to add or modify behavior.
+- **Code Organization**: Code is organized into meaningful namespaces and classes to maintain readability and maintainability.
+- **Settings Management**: Settings are handled through a custom settings class that exposes data and writes settings to XML.
 
 ## XML Integration
 
-- The XML portion is crucial for linking C# logic to the RimWorld game. Pay close attention to how each `ThingDef` and `TerrainDef` is declared in the XML and ensure they match accordingly in the C# definitions for proper functionality.
-- XML files should include clear comments and utilize attributes like `ParentName` for easy inheritance of properties.
+The mod uses XML files for configuration:
+
+- **Manifest.xml**: Contains metadata about the mod, such as its name, version, and dependencies.
+- **About.xml**: Provides additional information about the mod, including its author and dependencies.
 
 ## Harmony Patching
 
-- **Harmony Library**: The mod utilizes Harmony for runtime code modification, allowing for seamless integration and addition of features without altering the base game code. 
-- Focus on patches that specifically target methods related to the visibility of Gizmos rather than their existence. Ensure that patches do not affect save-game stability or core game mechanics.
-- Use `[HarmonyPatch]` and associated techniques to replace or extend existing game logic without introducing conflicts, especially when dealing with core UI classes.
+Harmony is used to patch the following method:
+
+- **Designator_Build.PostDesignate**: This method is patched to prevent the designation of hidden gizmos.
+
+Example Harmony patch:
+csharp
+[HarmonyPatch(typeof(Designator_Build), nameof(Designator_Build.PostDesignate))]
+public static class Designator_Build_Patch
+{
+    public static void Postfix(Designator_Build __instance)
+    {
+        if (ThingBegone.HiddenGizmos.Contains(__instance.ThingDef))
+        {
+            __instance.Revoke();
+        }
+    }
+}
+
 
 ## Suggestions for Copilot
 
-- **Class and Method Stubs**: Generate stubs for any missing methods or classes required for expanded functionality, such as additional UI components that need gizmo management.
-- **Debugging Assistance**: Provide logging statements to aid in tracking method execution, especially when debugging visibility toggling issues.
-- **Testing and Compatibility**: Suggest tests for compatibility with known conflicting mods like "RIMMSqol" and "Raise The Roof". This may involve conditional logic to handle specific mod states or settings.
-- **Code Documentation**: Encourage the addition of XML comments for public methods and classes to aid future developers in understanding the codebase and extending functionality.
+### General Suggestions
+- **Documentation**: Ensure that all methods and classes have comprehensive XML comments explaining their purpose and usage.
+- **Testing**: Add unit tests for critical functionality, such as gizmo hiding and settings management.
+- **Performance**: Optimize code to ensure it does not introduce performance bottlenecks, especially when handling large lists of ThingDefs.
 
-This file provides the necessary guidelines and context required for Copilot to assist efficiently in the development and maintenance of the Gizmo Begone mod. By following these structured approaches and leveraging automation, developers can ensure smooth mod operation and consistent player experience.
+### C# File Suggestions
+- **Startup.cs**: This class should handle initialization tasks, such as loading settings and registering Harmony patches.
+- **Settings\ThingBegone.cs**: This class should manage the settings UI and ensure that settings are correctly exposed and saved.
+- **Core\Designator_Build_Visible.cs**: This class should contain logic for determining whether a gizmo should be visible or hidden.
+
+### XML File Suggestions
+- **Manifest.xml**: Ensure that all dependencies are correctly listed and that the mod's version is up-to-date.
+- **About.xml**: Include detailed information about the mod, such as its purpose, author, and any known issues or conflicts.
+
+## Conclusion
+
+By following these guidelines, developers can contribute to the Gizmo Begone! (Continued) mod in a way that is consistent with the mod's coding standards and enhances its functionality and usability.
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+

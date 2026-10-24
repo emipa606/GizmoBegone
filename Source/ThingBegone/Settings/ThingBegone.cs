@@ -51,7 +51,7 @@ internal class ThingBegone : Mod
         return "Gizmo Begone!";
     }
 
-    public override void DoSettingsWindowContents(Rect rect)
+    public override void DoSettingsWindowContents(Rect inRect)
     {
         List<ThingDef> filteredThingDef;
         List<TerrainDef> filteredTerrainDef;
@@ -81,9 +81,9 @@ internal class ThingBegone : Mod
         if (!filteredThingDef.NullOrEmpty())
         {
             thingVectList = Tool.SetVectorCount(filteredThingDef.Count);
-            if (thingVectList.Last().y > rect.height - 70f && runFlag)
+            if (thingVectList[^1].y > inRect.height - 70f && runFlag)
             {
-                rectHeight = thingVectList.Last().y + 150f;
+                rectHeight = thingVectList[^1].y + 150f;
                 widthFix = 16f;
                 runFlag = false;
             }
@@ -92,19 +92,19 @@ internal class ThingBegone : Mod
         if (!filteredTerrainDef.NullOrEmpty())
         {
             terrainVectList = Tool.SetVectorCount(filteredThingDef.Count, filteredTerrainDef.Count);
-            if (terrainVectList.Last().y > rect.height - 70f && runFlagEnd)
+            if (terrainVectList[^1].y > inRect.height - 70f && runFlagEnd)
             {
-                rectHeight = terrainVectList.Last().y + 150f;
+                rectHeight = terrainVectList[^1].y + 150f;
                 widthFix = 16f;
                 runFlagEnd = false;
             }
         }
 
-        var upperBarRect = new Rect(rect.x, rect.y, rect.width, 70f);
-        var lowerContentRect = new Rect(rect.x, upperBarRect.height + 5f, rect.width - widthFix,
+        var upperBarRect = new Rect(inRect.x, inRect.y, inRect.width, 70f);
+        var lowerContentRect = new Rect(inRect.x, upperBarRect.height + 5f, inRect.width - widthFix,
             Math.Abs(rectHeight - upperBarRect.height));
-        var lowerContentRectScroll = new Rect(rect.x, upperBarRect.height + 5f, rect.width,
-            rect.height - upperBarRect.height);
+        var lowerContentRectScroll = new Rect(inRect.x, upperBarRect.height + 5f, inRect.width,
+            inRect.height - upperBarRect.height);
         listingUpperBar.Begin(upperBarRect);
         var a = Text.CalcSize("GiBe.Search".Translate()).x;
         var b = Text.CalcSize("GiBe.Clear".Translate()).x;
@@ -112,7 +112,7 @@ internal class ThingBegone : Mod
         var d = Text.CalcSize("GiBe.Unhide".Translate()).x;
         Widgets.Label(new Rect(0f, 0f, a, 22f), "GiBe.Search".Translate());
         searchInput = Widgets.TextField(new Rect(a + 6f, 0f, 200f, 22f), searchInput, 200,
-            new Regex("^[a-zA-Z0-9 ]*$"));
+            new Regex("^[a-zA-Z0-9 ]*$", RegexOptions.None, TimeSpan.FromSeconds(1)));
         if (Widgets.ButtonText(new Rect(a + 212f, 0f, b + 12f, 22f), "GiBe.Clear".Translate()))
         {
             searchInput = "";

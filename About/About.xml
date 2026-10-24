@@ -11,6 +11,7 @@
     <li>1.4</li>
     <li>1.5</li>
     <li>1.6</li>
+    <li>1.7</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -24,28 +25,28 @@
     <li>brrainz.harmony</li>
     <li>MalteSchulze.RIMMSqol</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+  <description>[img]https://img.litet.net/logos/Info.png[/img]
 Update of Nifs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2021234555
 
 - Added tooltip showing what mod each gizmo is from in the options
 - The seach-bar now also searches for the mod-name the gizmo is from
 
-[img]https://i.imgur.com/pufA0kM.png[/img]
+[img]https://img.litet.net/logos/Notice.png[/img]
 
 [table]
     [tr]
-        [td][url=https://discord.gg/h5TY6DA][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
-        [td][url=https://github.com/emipa606/GizmoBegone][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+        [td][url=https://discord.gg/h5TY6DA][img]https://img.litet.net/logos/Discord.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/GizmoBegone][img]https://img.litet.net/logos/Github.png[/img][/url][/td]
     [/tr]
     [tr]
-        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
-        [td][img]https://i.imgur.com/h5VwTNL.png[/img][/td]
+        [td][img]https://img.litet.net/logos/SafeToAdd.png[/img][/td]
+        [td][img]https://img.litet.net/logos/SafeToRemove.png[/img][/td]
     [/tr]
 [/table]
 	
-[img]https://i.imgur.com/Z4GOv8H.png[/img]
-[img]https://i.imgur.com/KJvD2se.png[/img]
+[img]https://img.litet.net/logos/OriginalDescription.png[/img]
+[img]https://img.litet.net/KJvD2se.png[/img]
 Tired of bloats? Those pesky squares taking up your screen? Well, worry no more! With Gizmo Begone, a single click can fix it all. By simply going to Gizmo Begone's settings, you'll find every ThingDef and TerrainDef you'll never need. Click on the button and voilà, it's like it never existed. The Gizmo for that buildable would be hidden, even on god mode. If you like what you see, come on down and subscribe!
 
 Edit:
@@ -56,15 +57,15 @@ I'm taking an indefinite hiatus as I'm getting more busier with life, especially
 
 IMPORTANT NOTE: it does not remove any ThingDefs. It simply hides the button (or Gizmo) of the building in the Architect tab. If its part of world generation, it will still spawn.
 
-[img]https://i.imgur.com/p7Fv1Z6.gif[/img]
+[img]https://img.litet.net/logos/ImageNotFound.png[/img]
 
 
-[img]https://i.imgur.com/RrpgF62.png[/img]
+[img]https://img.litet.net/RrpgF62.png[/img]
 »Minor Update (v1.1.0.3) [08/11/20]
 -Added 1.2 in supported versions.
 
 
-[img]https://i.imgur.com/IhKjLH4.png[/img]
+[img]https://img.litet.net/IhKjLH4.png[/img]
 Any mods that does the same function will most likely cause some form of incompatibility, RIMMSqol for example. It shouldn't be a hard incompatibility, however. Only one mod must be used for that same function to avoid any conflict.
 
 If you find any mods that does however, please report in the Problems / Conflicts thread. Thanks!
@@ -73,32 +74,32 @@ If you find any mods that does however, please report in the Problems / Conflict
 »Raise The Roof - due to the way it handles DesignationCategory, the conflict causes it to hide every button in "Zone" tab.
 
 
-[img]https://i.imgur.com/5ZFAUUh.png[/img]
+[img]https://img.litet.net/5ZFAUUh.png[/img]
 Q1: "RIMMSqol compatible?"
 A1: It should be, as long as you don't put it's Designation Category to a NONE.
 
 
-[img]https://i.imgur.com/8Qpxr2Q.png[/img]
+[img]https://img.litet.net/8Qpxr2Q.png[/img]
 »[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2050680665]Architect Expanded - Fences[/url]
 »[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016186459]ToolBox[/url]
 
 
-[img]https://i.imgur.com/JJgZG50.png[/img]
+[img]https://img.litet.net/JJgZG50.png[/img]
 »[url=https://ludeon.com/forums/index.php?topic=11022.0]Marnador for the Rimworld title screen font[/url]
 »[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url] developer, [url=https://www.patreon.com/pardeike]Andreas Pardeike[/url], for making patching possible and easier
 »And thanks to Tynan Sylvester for making the wonderful game that is Rimworld.
 
-[img]https://i.imgur.com/PwoNOj4.png[/img]
+[img]https://img.litet.net/logos/ReportingIssues.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
-[*] Post your error-log using the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Log Uploader[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
+[*] Always post your log using the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Log Uploader[/url]
 [*] For best support, please use the Discord-channel for error-reporting.
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
 [/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2559712178][img]https://img.shields.io/github/v/release/emipa606/GizmoBegone?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags:  hide,  designation</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.6.1</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2559712178][img]https://img.shields.io/github/v/release/emipa606/GizmoBegone?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | designation, hide</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.7.0</modVersion>
 </ModMetaData>
